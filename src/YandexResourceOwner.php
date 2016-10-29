@@ -15,6 +15,10 @@ class YandexResourceOwner implements ResourceOwnerInterface
      */
     public function __construct(array $response)
     {
+		if(!$response['is_avatar_empty']) {
+			$response['default_avatar'] = 'https://avatars.yandex.net/get-yapic/' . $response['default_avatar_id'] . '/islands-200';
+		}
+
         $this->response = $response;
     }
 
@@ -77,13 +81,13 @@ class YandexResourceOwner implements ResourceOwnerInterface
     }
 
     /**
-     * Gets image url.
+     * Gets avatar url.
      *
      * @return string|null
      */
-    public function getImageurl()
+    public function getAvatar()
     {
-        return !$this->response['is_avatar_empty'] ? 'https://avatars.yandex.net/get-yapic/' . $this->response['default_avatar_id'] . '/islands-200' : null;
+        return !$this->response['default_avatar'] ?: null;
     }
 
     /**
