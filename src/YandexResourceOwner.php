@@ -53,7 +53,7 @@ class YandexResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->response['display_name'] ?: null;
+        return $this->response['real_name'] ?: null;
     }
 
     /**
