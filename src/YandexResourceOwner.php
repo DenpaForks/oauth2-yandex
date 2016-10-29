@@ -87,7 +87,7 @@ class YandexResourceOwner implements ResourceOwnerInterface
      */
     public function getAvatar()
     {
-        return !$this->response['default_avatar'] ?: null;
+        return $this->response['default_avatar'] ?: null;
     }
 
     /**
