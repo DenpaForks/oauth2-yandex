@@ -88,6 +88,15 @@ class YandexResourceOwner implements ResourceOwnerInterface
     public function getAvatar()
     {
         return $this->response['default_avatar'] ?: null;
+
+	/**
+     * Gets the gender.
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->response['sex'] ?: null;
     }
 
     /**
